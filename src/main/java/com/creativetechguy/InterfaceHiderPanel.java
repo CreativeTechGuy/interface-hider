@@ -7,6 +7,9 @@ import net.runelite.client.ui.PluginPanel;
 import javax.annotation.Nullable;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -35,6 +38,20 @@ public class InterfaceHiderPanel extends PluginPanel {
         this.config = config;
 
         setLayout(new BorderLayout());
+
+        JPanel header = new JPanel();
+        header.setLayout(new BorderLayout());
+        header.setBorder(new MatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY));
+
+        JLabel title = new JLabel("Interface Hider");
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        header.add(title, BorderLayout.NORTH);
+
+        JLabel description = new JLabel("Right click an item below for options");
+        description.setHorizontalAlignment(SwingConstants.CENTER);
+        header.add(description, BorderLayout.SOUTH);
+
+        add(header, BorderLayout.NORTH);
 
         widgetList = new JPanel();
         widgetList.setLayout(new BoxLayout(widgetList, BoxLayout.Y_AXIS));
@@ -111,6 +128,7 @@ public class InterfaceHiderPanel extends PluginPanel {
         } else {
             data.setToolTipText(getName(id));
         }
+        JPopupMenu menu = new JPopupMenu();
 
         if (w != null) {
             data.addMouseListener(new MouseAdapter() {
@@ -122,17 +140,39 @@ public class InterfaceHiderPanel extends PluginPanel {
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    interfaceHighlightOverlay.setSelectedWidget(null);
-                    if (interfaceOverrideConfigManager.hasOverride(id)) {
-                        data.setForeground(Color.CYAN);
-                    } else {
-                        data.setForeground(null);
+                    if (!menu.isShowing()) {
+                        interfaceHighlightOverlay.setSelectedWidget(null);
+                        if (interfaceOverrideConfigManager.hasOverride(id)) {
+                            data.setForeground(Color.CYAN);
+                        } else {
+                            data.setForeground(null);
+                        }
                     }
                 }
             });
         }
 
-        JPopupMenu menu = new JPopupMenu();
+        menu.addPopupMenuListener(new PopupMenuListener() {
+            @Override
+            public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+                data.setForeground(Color.ORANGE);
+            }
+
+            @Override
+            public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+                interfaceHighlightOverlay.setSelectedWidget(null);
+                if (interfaceOverrideConfigManager.hasOverride(id)) {
+                    data.setForeground(Color.CYAN);
+                } else {
+                    data.setForeground(null);
+                }
+            }
+
+            @Override
+            public void popupMenuCanceled(PopupMenuEvent e) {
+                this.popupMenuWillBecomeInvisible(e);
+            }
+        });
         if (interfaceOverrideConfigManager.hasOverride(id)) {
             data.setForeground(Color.CYAN);
             JMenuItem resetMenuItem = new JMenuItem("Restore Widget");

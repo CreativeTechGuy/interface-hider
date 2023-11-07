@@ -100,6 +100,8 @@ public class NamedInterfaces {
         nameMap.put(25362455, "Equipment Feet");
         nameMap.put(25362456, "Equipment Ring");
         nameMap.put(25362457, "Equipment Ammo");
+        nameMap.put(25952259, "Wintertodt Points");
+        nameMap.put(25952271, "Wintertodt Energy");
         nameMap.put(26607621, "God Wars Dungeon KC");
         nameMap.put(26673154, "Pest Control Next Departure");
         nameMap.put(26673159, "Pest Control Boat Name");

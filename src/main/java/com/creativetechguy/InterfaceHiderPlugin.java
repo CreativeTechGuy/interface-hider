@@ -64,6 +64,10 @@ public class InterfaceHiderPlugin extends Plugin {
 
     @Override
     protected void startUp() throws Exception {
+        panel = new InterfaceHiderPanel(interfaceOverrideConfigManager,
+                visibleWidgets,
+                interfaceHighlightOverlay,
+                config);
         createNavButton();
         if (!config.hideSidePanel()) {
             clientToolbar.addNavigation(navButton);
@@ -268,10 +272,6 @@ public class InterfaceHiderPlugin extends Plugin {
 
     private void createNavButton() {
         clientToolbar.removeNavigation(navButton);
-        panel = new InterfaceHiderPanel(interfaceOverrideConfigManager,
-                visibleWidgets,
-                interfaceHighlightOverlay,
-                config);
         navButton = NavigationButton.builder()
                 .tooltip(getName())
                 .priority(config.panelPosition())
