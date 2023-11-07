@@ -1,0 +1,165 @@
+package com.creativetechguy;
+
+import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
+
+public class NamedInterfaces {
+    private static final Map<Integer, String> nameMap = new HashMap<>();
+
+    static {
+        // These are in ascending ID order, this generally keeps similar interfaces grouped together.
+        nameMap.put(786449, "Bank Swap Mode");
+        nameMap.put(786451, "Bank Insert Mode");
+        nameMap.put(786454, "Bank Item Withdraw Mode");
+        nameMap.put(786456, "Bank Note Withdraw Mode");
+        nameMap.put(786460, "Bank Quantity 1");
+        nameMap.put(786462, "Bank Quantity 5");
+        nameMap.put(786464, "Bank Quantity 10");
+        nameMap.put(786466, "Bank Quantity X");
+        nameMap.put(786468, "Bank Quantity All");
+        nameMap.put(1114117, "Portal Nexus Mode Select");
+        nameMap.put(1835009, "Ver Sinhaza Dark Overlay");
+        nameMap.put(1835013, "Theatre of Blood Party");
+        nameMap.put(4521986, "World Switcher Header");
+        nameMap.put(4889861, "Guardians of the Rift Timer");
+        nameMap.put(4889882, "Guardians of the Rift Portal Timer");
+        nameMap.put(5898284, "PvP Arena");
+        nameMap.put(9764864, "Inventory");
+        nameMap.put(10485760, "Minimap Orbs");
+        nameMap.put(10485766, "HP Orb");
+        nameMap.put(10485777, "Prayer Orb");
+        nameMap.put(10485785, "Run Energy Orb");
+        nameMap.put(10485793, "Spec Orb");
+        nameMap.put(10485808, "World Map Icon");
+        nameMap.put(10485809, "Wiki Icon");
+        nameMap.put(10616836, "Chat All Button");
+        nameMap.put(10616839, "Chat Game Button");
+        nameMap.put(10616843, "Chat Public Button");
+        nameMap.put(10616847, "Chat Private Button");
+        nameMap.put(10616851, "Chat Channel Button");
+        nameMap.put(10616855, "Chat Clan Button");
+        nameMap.put(10616859, "Chat Trade Button");
+        nameMap.put(10616863, "Chat Report Button");
+        nameMap.put(10616867, "Resizable Chat Background");
+        nameMap.put(10616886, "Chat Area");
+        nameMap.put(10747994, "Resizable Minimap");
+        nameMap.put(10747996, "Inventory Bottom Stones");
+        nameMap.put(10747997, "Inventory Top Stones");
+        nameMap.put(11927555, "World Switcher Button");
+        nameMap.put(11927560, "Logout Button");
+        nameMap.put(11927565, "Logout Vote Section");
+        nameMap.put(11927568, "Logout Vote Positive");
+        nameMap.put(11927572, "Logout Vote Negative");
+        nameMap.put(12713986, "Mage Training Arena Alchemy Points");
+        nameMap.put(12779522, "Mage Training Arena Enchantment Points");
+        nameMap.put(12779527, "Mage Training Arena Enchantment Bonus");
+        nameMap.put(12845058, "Mage Training Arena Graveyard Points");
+        nameMap.put(12845064, "Mage Training Arena Graveyard Bones");
+        nameMap.put(12976130, "Mage Training Arena Telekinetic Points");
+        nameMap.put(12976136, "Mage Training Arena Telekinetic Solved");
+        nameMap.put(15794178, "Tithe Farm Points");
+        nameMap.put(20971521, "Skills Attack");
+        nameMap.put(20971522, "Skills Strength");
+        nameMap.put(20971523, "Skills Defence");
+        nameMap.put(20971524, "Skills Ranged");
+        nameMap.put(20971525, "Skills Prayer");
+        nameMap.put(20971526, "Skills Magic");
+        nameMap.put(20971527, "Skills Runecraft");
+        nameMap.put(20971528, "Skills Construction");
+        nameMap.put(20971529, "Skills Hitpoints");
+        nameMap.put(20971530, "Skills Agility");
+        nameMap.put(20971531, "Skills Herblore");
+        nameMap.put(20971532, "Skills Thieving");
+        nameMap.put(20971533, "Skills Crafting");
+        nameMap.put(20971534, "Skills Fletching");
+        nameMap.put(20971535, "Skills Slayer");
+        nameMap.put(20971536, "Skills Hunter");
+        nameMap.put(20971537, "Skills Mining");
+        nameMap.put(20971538, "Skills Smithing");
+        nameMap.put(20971539, "Skills Fishing");
+        nameMap.put(20971540, "Skills Cooking");
+        nameMap.put(20971541, "Skills Cooking");
+        nameMap.put(20971542, "Skills Woodcutting");
+        nameMap.put(20971543, "Skills Farming");
+        nameMap.put(20971544, "Skills Total Level");
+        nameMap.put(24772612, "Login Screen Footer");
+        nameMap.put(24772666, "Login Screen Header");
+        nameMap.put(24772670, "Login Screen Membership Section");
+        nameMap.put(24772675, "Login Screen Inbox Section");
+        nameMap.put(24772680, "Login Screen Play Button");
+        nameMap.put(24772684, "Login Screen Banner");
+        nameMap.put(25362447, "Equipment Head");
+        nameMap.put(25362448, "Equipment Cape");
+        nameMap.put(25362449, "Equipment Neck");
+        nameMap.put(25362450, "Equipment Mainhand");
+        nameMap.put(25362451, "Equipment Torso");
+        nameMap.put(25362452, "Equipment Offhand");
+        nameMap.put(25362453, "Equipment Legs");
+        nameMap.put(25362454, "Equipment Hands");
+        nameMap.put(25362455, "Equipment Feet");
+        nameMap.put(25362456, "Equipment Ring");
+        nameMap.put(25362457, "Equipment Ammo");
+        nameMap.put(26607621, "God Wars Dungeon KC");
+        nameMap.put(26673154, "Pest Control Next Departure");
+        nameMap.put(26673159, "Pest Control Boat Name");
+        nameMap.put(26738690, "Pest Control Game Stats");
+        nameMap.put(28639234, "Tempoross");
+        nameMap.put(28639251, "Tempoross Energy Bar");
+        nameMap.put(28639253, "Tempoross Essence Bar");
+        nameMap.put(28639255, "Tempoross Storm Intensity Bar");
+        nameMap.put(28639256, "Tempoross Masts Status");
+        nameMap.put(28639257, "Tempoross Points");
+        nameMap.put(31522856, "Tombs of Amascut Timer");
+        nameMap.put(33619971, "Chambers of Xeric Points");
+        nameMap.put(35913764, "Multicombat Icon");
+        nameMap.put(35913773, "Inventory Bottom Icons");
+        nameMap.put(35913789, "Inventory Top Icons");
+        nameMap.put(38666242, "Jewellery Box Ring of Dueling");
+        nameMap.put(38666243, "Jewellery Box Games Necklace");
+        nameMap.put(38666244, "Jewellery Box Combat Bracelet");
+        nameMap.put(38666245, "Jewellery Box Skills Necklace");
+        nameMap.put(38666246, "Jewellery Box Ring of Wealth");
+        nameMap.put(38666247, "Jewellery Box Amulet of Glory");
+        nameMap.put(38862852, "Combat Style 1");
+        nameMap.put(38862856, "Combat Style 2");
+        nameMap.put(38862860, "Combat Style 3");
+        nameMap.put(38862864, "Combat Style 4");
+        nameMap.put(38862869, "Combat Style Defensive Casting");
+        nameMap.put(38862874, "Combat Style Casting");
+        nameMap.put(38862878, "Auto Retaliate");
+        nameMap.put(38993944, "World Map Key Button");
+        nameMap.put(38993945, "World Map Search");
+        nameMap.put(38993946, "World Map Dimension Select");
+        nameMap.put(38993947, "World Map Zoom Out");
+        nameMap.put(38993948, "World Map Zoom In");
+        nameMap.put(38993949, "World Map Overview");
+        nameMap.put(39911425, "Oxygen Level");
+        nameMap.put(40042499, "Volcanic Mine Stats");
+        nameMap.put(40042522, "Volcanic Mine Status");
+        nameMap.put(41222147, "Character Summary Button");
+        nameMap.put(41222152, "Quest List Button");
+        nameMap.put(41222157, "Achievement Diaries Button");
+        nameMap.put(43778051, "Hallowed Sepulchre Time");
+        nameMap.put(45023237, "Tempoross Lobby");
+        nameMap.put(46333955, "Chat Channel Tab");
+        nameMap.put(46333956, "Clan Tab");
+        nameMap.put(46333957, "Another Clan Tab");
+        nameMap.put(46333958, "Grouping Tab");
+        nameMap.put(48889860, "Guardians of the Rift");
+        nameMap.put(48889862, "Guardians of the Rift Guardian Power");
+        nameMap.put(48889875, "Guardians of the Rift Elemental");
+        nameMap.put(48889878, "Guardians of the Rift Catalytic");
+        nameMap.put(48889881, "Guardians of the Rift Guardians");
+        nameMap.put(50659330, "Tombs of Amascut Party");
+    }
+
+    @Nullable
+    static public String getName(int id) {
+        return nameMap.get(id);
+    }
+
+    static public boolean hasName(int id) {
+        return nameMap.containsKey(id);
+    }
+}
