@@ -26,11 +26,11 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Interface Tweaker",
-        description = "Enables tweaking interface elements by hiding or making transparent",
-        configName = InterfaceTweakerConfig.GROUP_NAME
+        name = "Interface Hider",
+        description = "Enables hiding interface elements or making transparent",
+        configName = InterfaceHiderConfig.GROUP_NAME
 )
-public class InterfaceTweakerPlugin extends Plugin {
+public class InterfaceHiderPlugin extends Plugin {
     @Inject
     private Client client;
 
@@ -38,7 +38,7 @@ public class InterfaceTweakerPlugin extends Plugin {
     private ClientThread clientThread;
 
     @Inject
-    private InterfaceTweakerConfig config;
+    private InterfaceHiderConfig config;
 
     @Inject
     private OverlayManager overlayManager;
@@ -55,11 +55,11 @@ public class InterfaceTweakerPlugin extends Plugin {
     private final List<Widget> visibleWidgets = new ArrayList<>();
     private final Map<Integer, DefaultWidgetSettings> previousWidgetSettings = new HashMap<>();
     private NavigationButton navButton;
-    private InterfaceTweakerPanel panel;
+    private InterfaceHiderPanel panel;
 
     @Provides
-    InterfaceTweakerConfig provideConfig(ConfigManager configManager) {
-        return configManager.getConfig(InterfaceTweakerConfig.class);
+    InterfaceHiderConfig provideConfig(ConfigManager configManager) {
+        return configManager.getConfig(InterfaceHiderConfig.class);
     }
 
     @Override
@@ -85,21 +85,21 @@ public class InterfaceTweakerPlugin extends Plugin {
 
     @Subscribe
     public void onConfigChanged(ConfigChanged event) {
-        if (!event.getGroup().equals(InterfaceTweakerConfig.GROUP_NAME)) {
+        if (!event.getGroup().equals(InterfaceHiderConfig.GROUP_NAME)) {
             return;
         }
-        if (event.getKey().equals(InterfaceTweakerConfig.OVERRIDES_KEY) && event.getNewValue().isEmpty()) {
+        if (event.getKey().equals(InterfaceHiderConfig.OVERRIDES_KEY) && event.getNewValue().isEmpty()) {
             interfaceOverrideConfigManager.clearOverrides();
         }
-        if (event.getKey().equals(InterfaceTweakerConfig.LABELS_KEY) && event.getNewValue().isEmpty()) {
+        if (event.getKey().equals(InterfaceHiderConfig.LABELS_KEY) && event.getNewValue().isEmpty()) {
             interfaceOverrideConfigManager.clearLabels();
         }
         clientThread.invokeLater(this::tweakWidgets);
-        if (event.getKey().equals(InterfaceTweakerConfig.INTERFACES_SHOWN) || event.getKey()
-                .equals(InterfaceTweakerConfig.DISABLE_PLUGIN_INTERFACE_NAMES)) {
+        if (event.getKey().equals(InterfaceHiderConfig.INTERFACES_SHOWN) || event.getKey()
+                .equals(InterfaceHiderConfig.DISABLE_PLUGIN_INTERFACE_NAMES)) {
             panel.updateList();
         }
-        if (event.getKey().equals(InterfaceTweakerConfig.HIDE_SIDE_PANEL)) {
+        if (event.getKey().equals(InterfaceHiderConfig.HIDE_SIDE_PANEL)) {
             if (config.hideSidePanel()) {
                 clientToolbar.removeNavigation(navButton);
                 overlayManager.remove(interfaceHighlightOverlay);
@@ -108,7 +108,7 @@ public class InterfaceTweakerPlugin extends Plugin {
                 overlayManager.add(interfaceHighlightOverlay);
             }
         }
-        if (event.getKey().equals(InterfaceTweakerConfig.SIDE_PANEL_POSITION)) {
+        if (event.getKey().equals(InterfaceHiderConfig.SIDE_PANEL_POSITION)) {
             createNavButton();
         }
     }
@@ -268,7 +268,7 @@ public class InterfaceTweakerPlugin extends Plugin {
 
     private void createNavButton() {
         clientToolbar.removeNavigation(navButton);
-        panel = new InterfaceTweakerPanel(interfaceOverrideConfigManager,
+        panel = new InterfaceHiderPanel(interfaceOverrideConfigManager,
                 visibleWidgets,
                 interfaceHighlightOverlay,
                 config);

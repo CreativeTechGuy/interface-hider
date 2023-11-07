@@ -5,9 +5,9 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.Range;
 
-@ConfigGroup(InterfaceTweakerConfig.GROUP_NAME)
-public interface InterfaceTweakerConfig extends Config {
-    String GROUP_NAME = "interface-tweaker";
+@ConfigGroup(InterfaceHiderConfig.GROUP_NAME)
+public interface InterfaceHiderConfig extends Config {
+    String GROUP_NAME = "interface-hider";
 
     String SIDE_PANEL_POSITION = "panelPosition";
 

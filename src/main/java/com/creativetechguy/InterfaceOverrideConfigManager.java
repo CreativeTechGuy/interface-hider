@@ -27,13 +27,13 @@ public class InterfaceOverrideConfigManager {
     public InterfaceOverrideConfigManager(ConfigManager configManager, Gson gson) {
         this.configManager = configManager;
         this.gson = gson;
-        String serializedOverrides = configManager.getConfiguration(InterfaceTweakerConfig.GROUP_NAME,
-                InterfaceTweakerConfig.OVERRIDES_KEY);
+        String serializedOverrides = configManager.getConfiguration(InterfaceHiderConfig.GROUP_NAME,
+                InterfaceHiderConfig.OVERRIDES_KEY);
         if (serializedOverrides != null && !serializedOverrides.isEmpty()) {
             overrides = gson.fromJson(serializedOverrides, overridesMapType);
         }
-        String serializedLabels = configManager.getConfiguration(InterfaceTweakerConfig.GROUP_NAME,
-                InterfaceTweakerConfig.LABELS_KEY);
+        String serializedLabels = configManager.getConfiguration(InterfaceHiderConfig.GROUP_NAME,
+                InterfaceHiderConfig.LABELS_KEY);
         if (serializedLabels != null && !serializedLabels.isEmpty()) {
             labels = gson.fromJson(serializedLabels, labelMapType);
         }
@@ -59,8 +59,8 @@ public class InterfaceOverrideConfigManager {
 
     private void saveLabels() {
         String serializedLabels = gson.toJson(labels, labelMapType);
-        configManager.setConfiguration(InterfaceTweakerConfig.GROUP_NAME,
-                InterfaceTweakerConfig.LABELS_KEY,
+        configManager.setConfiguration(InterfaceHiderConfig.GROUP_NAME,
+                InterfaceHiderConfig.LABELS_KEY,
                 serializedLabels);
     }
 
@@ -76,8 +76,8 @@ public class InterfaceOverrideConfigManager {
 
     private void saveOverrides() {
         String serializedOverrides = gson.toJson(overrides, overridesMapType);
-        configManager.setConfiguration(InterfaceTweakerConfig.GROUP_NAME,
-                InterfaceTweakerConfig.OVERRIDES_KEY,
+        configManager.setConfiguration(InterfaceHiderConfig.GROUP_NAME,
+                InterfaceHiderConfig.OVERRIDES_KEY,
                 serializedOverrides);
     }
 

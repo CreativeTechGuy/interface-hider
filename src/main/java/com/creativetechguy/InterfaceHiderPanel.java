@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 
-public class InterfaceTweakerPanel extends PluginPanel {
-    private InterfaceTweakerConfig config;
+public class InterfaceHiderPanel extends PluginPanel {
+    private InterfaceHiderConfig config;
 
     @Getter
     private boolean isActive = false;
@@ -28,7 +28,7 @@ public class InterfaceTweakerPanel extends PluginPanel {
 
     private int updateId = 0;
 
-    public InterfaceTweakerPanel(InterfaceOverrideConfigManager interfaceOverrideConfigManager, Collection<Widget> visibleWidgets, InterfaceHighlightOverlay interfaceHighlightOverlay, InterfaceTweakerConfig config) {
+    public InterfaceHiderPanel(InterfaceOverrideConfigManager interfaceOverrideConfigManager, Collection<Widget> visibleWidgets, InterfaceHighlightOverlay interfaceHighlightOverlay, InterfaceHiderConfig config) {
         this.interfaceOverrideConfigManager = interfaceOverrideConfigManager;
         this.visibleWidgets = visibleWidgets;
         this.interfaceHighlightOverlay = interfaceHighlightOverlay;

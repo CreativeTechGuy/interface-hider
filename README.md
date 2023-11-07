@@ -1,11 +1,11 @@
-# Interface Tweaker
+# Interface Hider
 
 > A highly customizable plugin enabling you to change the opacity of almost any interface element (or hide it
 > completely).
 
 Are big interfaces taking up too much space on your screen? Here's a solution!
 
-![demo](./interface-tweaker.gif)
+![demo](./interface-hider.gif)
 
 In the plugin's side panel, you can hover over the names of the interfaces and they'll be highlighted on screen. Right
 click on the name to set opacity or hide. Only interfaces which are currently visible are listed.
