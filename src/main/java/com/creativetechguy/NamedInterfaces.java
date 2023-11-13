@@ -136,6 +136,8 @@ public class NamedInterfaces {
         nameMap.put(38993947, "World Map Zoom Out");
         nameMap.put(38993948, "World Map Zoom In");
         nameMap.put(38993949, "World Map Overview");
+        nameMap.put(39452680, "Item Retrieval Discard All Button");
+        nameMap.put(39452681, "Item Retrieval Discard All Icon");
         nameMap.put(39911425, "Oxygen Level");
         nameMap.put(40042499, "Volcanic Mine Stats");
         nameMap.put(40042522, "Volcanic Mine Status");
